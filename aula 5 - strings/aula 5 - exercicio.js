@@ -1,0 +1,11 @@
+StringEx = "Javascript é incrível!"
+console.log (StringEx[5])
+teste = StringEx.charAt(5)
+console.log (teste)
+teste = StringEx.replace("incrível", "poderoso")
+console.log (teste)
+console.log(StringEx.length)
+teste = StringEx.slice(0, 9)
+console.log (teste)
+teste = StringEx.concat(" Vamos aprender!")
+console.log (teste)
