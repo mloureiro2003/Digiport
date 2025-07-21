@@ -2,7 +2,10 @@ git init     Inicia um repositorio Git local
 git status   Mostra os arquivos modificados
 git add -nome arquivo   Adiciona um arquivo ao staging
 git add .   Adiciona todos os arquivos
-git commit -m "mensagem"    Cria um commit com uma mensagem 
+git commit -m "mensagem"    Cria um commit com uma mensagem
+git commit --allow-empty    Flag de commit "dummy", vazio
+git commit -a -m "..."      -a -> usada para não fazer git add . 
+    ou -am                   
 git log     Mostra o historico de commits
 git clone <url>     Clona um repositorio remoto
 git push    Envia os commits locais pro Github (ou outro remoto)
