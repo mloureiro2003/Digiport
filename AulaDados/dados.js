@@ -18,4 +18,4 @@ console.log("cidade: ", cidade);
 const niver = "30 de julho";
 let ano = 2025;
 
-console.log("niver: ", niver, "de", ano);
+console.log(`${niver} niver de ${ano}`)
