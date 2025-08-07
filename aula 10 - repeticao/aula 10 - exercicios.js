@@ -54,14 +54,16 @@ console.log("\n")
 
 /////////////////////////
 
-let opcao
+let opcao = 0
+const prompt = require("prompt-sync")();
 
 while (opcao != 4){
-    console.log("1 - Ver cardário")
+    console.log("\n1 - Ver cardário")
     console.log("2 - Fazer pedido")
     console.log("3 - Falar com atendente")
     console.log ("4 - Sair")
-    opcao = parteInt(prompt("Escolha uma opcao:"))
+    console.log ("Escolha uma opcao:\n ")
+    opcao = parseInt(prompt())
     
     switch (opcao){
         case 1:
