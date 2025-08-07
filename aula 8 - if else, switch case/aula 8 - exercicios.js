@@ -30,7 +30,7 @@ let num = 9
 if (num >= 0){
     console.log("Número é positivo.")
 }
-if else (num <= 0){
+else if (num <= 0){
     console.log("Número é negativo")
 }
 else {

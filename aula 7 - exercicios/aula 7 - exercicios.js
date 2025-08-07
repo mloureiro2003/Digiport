@@ -40,7 +40,7 @@ let Chuva = true
 let GuardaChuva = false
 
 if (Chuva === true){
-    if (GuardaChuva === true){
+    if (GuardaChuva === t-rue){
         console.log ("Larissa pode sair!")
     }
     else {
