@@ -60,13 +60,14 @@ dog.bark()
 // Each product has 'name' and 'price'.
 // Print the name of each product along with its price.
 
-let market = {
-    name: ["Sabão em pó", "Coca-cola", "Massa"],
-    price: [21, 7, 12]
-}
+let market = [
+    { name: "Sabão em pó", price: 21},
+    { name: "Coca-cola", price: 7},
+    { name: "Massa", price: 12}
+]
 
-for (i = 0; i < market.name.length; i++){
-    console.log(`Objeto: ${market.name[i]}, preço: R$${market.price[i]}`)
+for (i = 0; i < market.length; i++){
+    console.log(`Objeto: ${market[i].name}, preço: R$${market[i].price}`)
 } 
 
 // 5. Object inside object
@@ -96,15 +97,17 @@ let scores = {
   Charlie: 4,
 };
 
-let scores2 = {
-    name: ["Alice", "Bob", "Charlie"],
-    points: [scores.Alice, scores.Bob, scores.Charlie]
-}
+let scores2 = [
+    { name: "Alice", points: 5},
+    { name: "Bob", points: 7},
+    { name: "Charlie", points: 4}
+]
 
 let total = 0;
 
-for (i = 0; i < scores2.name.length; i++){
-    total += scores2.points[i]
+for (i = 0; i < scores2.length; i++){
+    console.log(`${scores2[i].name} marcou ${scores2[i].points} pontos`)
+    total += scores2[i].points
 }
 
-console.log(`Total de pontos: ${total}`)
+console.log(`Total de pontos da equipe: ${total}`)
