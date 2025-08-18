@@ -66,6 +66,8 @@ let market = [
     { name: "Massa", price: 12}
 ]
 
+let i = 0
+
 for (i = 0; i < market.length; i++){
     console.log(`Objeto: ${market[i].name}, preço: R$${market[i].price}`)
 } 
@@ -97,17 +99,10 @@ let scores = {
   Charlie: 4,
 };
 
-let scores2 = [
-    { name: "Alice", points: 5},
-    { name: "Bob", points: 7},
-    { name: "Charlie", points: 4}
-]
+let total = 0
 
-let total = 0;
-
-for (i = 0; i < scores2.length; i++){
-    console.log(`${scores2[i].name} marcou ${scores2[i].points} pontos`)
-    total += scores2[i].points
+for (let player in scores){
+    total += scores[player];
 }
 
 console.log(`Total de pontos da equipe: ${total}`)
