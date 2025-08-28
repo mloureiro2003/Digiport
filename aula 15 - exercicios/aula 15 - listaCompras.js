@@ -1,82 +1,85 @@
-function adicionarItem(){
-    console.log("\nDigite o nome do item: ")
-    let nome = prompt()
+let prompt = require("prompt-sync")()
 
-    console.log("\nDigite a quantidade: ")
-    let quant = parseInt(prompt())
-    listaCompras.push(this.nome = nome, this.quant = quant)
-}
-
-function removeItem(){
-    for (let i=0; i< listaCompras.length; i++){
-        console.log(`${i+1}: ${listaCompras[i]}`)
+class Item{
+    constructor(nome, quant){
+        this.nome = nome
+        this.quant = quant
     }
 
-    console.log("\nEscolha o número da tarefa que deseja remover: ")
-    
-    item = parseInt(prompt())-1
-    console.log(item)
+    static listaCompras = []
 
-    while (item > listaCompras.length){
-        console.log("\nFavor entre com um número válido")
+    static adicionarItems(){
+        console.log("\nDigite o nome do item: ")
+        let nome = prompt()
+
+        console.log(`\nDiite a quantidade de ${nome}`)
+        let quant = parseInt(prompt())
+
+        Item.listaCompras.push(new Item(nome, quant))
+        console.log("\nItem adicionado com sucesso!")
     }
 
+    static listaItens(){
+        if (Item.listaCompras.length === 0){
+            console.log("\nNão há itens na lista")
+        } else{
+            for (let i = 0; i < Item.listaCompras.length; i++){
+                console.log(`${i + 1}: ${Item.listaCompras[i].nome}: ${Item.listaCompras[i].quant}`)
+            }
+        }
+    }
 
-   listaCompras.splice(item, 1);
+    static removeItem(){
+        if (Item.listaCompras.length === 0){
+            console.log("\nNão há itens para remover.")
+            return
+        }
+
+        Item.listaItens()
+        console.log("\nEscolha o número do item que deseja remover: ")
+        let item = parseInt(prompt()-1)
+
+        while (item < 0 || item >= Item.listaCompras.length){
+            console.log("\nFavor entrar com um número válido.")
+            item = parseInt(prompt()-1)
+        }
+
+        Item.listaCompras.splice(item,1)
+        console.log("Item removido com sucesso!")
+    }
 }
 
 function menu(){
     let escolha
     
-    console.log ("\n--- MENU ---")
-    console.log("1 - Adicionar item")
-    console.log("2 - Ver item")
-    console.log("3 - Remover item")
-    console.log("4 - Sair")
+    
+    while (escolha !== 4) {
+        console.log("\n--- MENU ---");
+        console.log("1 - Adicionar item");
+        console.log("2 - Ver itens");
+        console.log("3 - Remover item");
+        console.log("4 - Sair");
 
-    escolha = parseInt(prompt())
-    return escolha
-}
+        escolha = parseInt(prompt("Escolha uma opção: "));
 
-let listaCompras = []
-let flagMenu = 1
-let flag = -1
-let escolha 
+        switch(escolha){
+            case 1:
+                Item.adicionarItems()
+                break
 
-while (flag != 4){
-    while (flagMenu){
-        escolha = menu()
-        if (escolha > 4){
-            console.log("Favor entre com um número de 1 a 4")
-        } else {
-            flagMenu = 0
+            case 2:
+                Item.listaItens()
+                break
+            case 3:
+                Item.removeItem()
+                break
+            case 4:
+                console.log("Saindo...")
+                break
+            default:
+                console.log("Favor entrar com um número válido")
         }
     }
-
-    switch (escola){
-        case 1: 
-            adicionarItem()
-            console.log("\nItem adicionado com sucesso!")
-            break
-
-        case 2:
-            if (listaCompras.length === 0){
-                console.log("Não há itens na lista")
-            } else{
-                for (let i = 0; i > listaCompras.length; i++){
-                    console.log(`${i+1} - ${listaCompras[i].nome}, ${listaCompras[i].quant}`)
-                }
-            }
-            break
-
-        case 3:
-            removeItem()
-            break
-
-        case 4: 
-            break
-
-        default:
-            console.log("Favor entre com um número válido")
-    }
 }
+
+menu()
